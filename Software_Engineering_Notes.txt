@@ -1,0 +1,121 @@
+Software Engineering Notes :
+
+
+Software Development Lifecycle Notes
+
+Software Development Lifecycle Intro
+The typical software development lifecycle details how a piece of software is built. It covers inception, creation, and maintenance. This model is very high-level, meaning it covers only the large areas of the cycle. Each area can be further expanded to more specifically define the process.
+This cycle does not have to be completed in order. There are many different ways to accomplish each task. Depending on the problem at hand, certain solutions will work better than others.
+Software Development Lifecycle Steps
+Requirements – This section covers how to define the problem at hand. Here we take the idea of the problem and represent it into more concrete and real world explanations. For example, we might take the idea of a website and come up with a list of things the website should be able to do.
+Design – After detailing the problem, we work on coming up with how we are going to solve that problem. In design we come up with the exact plans on how we can create a product which satisfies our requirements.
+Implementation – This is step where we begin creating the solution. Here we work on building out all areas set forth in the design step.
+Verification - With verification we work on making sure our solution solves the problem. We test the product, look for bugs, and adjust any areas which are incorrect.
+Maintenance – After verification, we launch the product. From this point on, we begin working on maintaining the product. Bugs will come up, and new features will need to be implemented. This part of the cycle can go on indefinitely.
+Lifecycle Importance
+Knowing each step in this cycle is crucial for understanding the rest of the course, and software engineering in general. Every project needs to pay attention to each of these areas to be successful in the long-term.
+
+
+
+Requirements Notes
+Requirements Definition
+Requirements define the problem at hand. In this step we are trying to find out the "what". We are NOT trying to find out the "how". This means we want to come up with a set of goals the system should be able to do, but not try to figure out how to accomplish these goals.
+For example, let's say we have the problem of needing a form to track financial transactions. In the requirements we might look to define what exactly this form should track. Maybe we need a name, date, amount, and bank account field. From there, it needs to be stored into a database. These would all be requirements. We don't however need to figure out the best way to do any of that. Those questions are for the design phase.
+So to reiterate, requirements are just to define the problem. It's the phase where we come up with a common set of goals that we are working towards. The requirements will constantly be looked at through production to make sure the product being built is actually solving the original problem.
+
+--------------------------------------------------------------
+Requirements vs Specifications
+Within the requirements phase, we also look at something called specifications. Specifications are in essence "technical requirements". They are used to define the problem in terms of the technical constraints.
+By constraints, I mean limitations, or implementations that must happen. For example, if a client only uses MySQL databases, then we have to use a MySQL database as well. This isn't a design choice, it's something that must happen, therefore it goes into requirements.
+Requirements - A non-technical definition of something that is required from the system.
+Specifications - A technical definition of what is required from the system.
+With requirements, we are trying to keep it simple. We don't want to use any technical jargon. It should be understood by just about anyone. Something very simple like "Should record bank account information" is good.
+With specifications, we can be a little more exact, and use some technical jargon. We still want to keep it as simple as possible though. "Encrypt the bank account information with at-least a AES 256 standard".  Again, we are NOT trying to design it here. We aren't going into the specifics, just saying the technical standard by which we need to meet. We will come up with how to do this, which encryption to actually use, etc. in the design phase.
+Non-Functional vs Functional
+There is one final area of organization we can add onto our requirements. This is the idea between functional, and non-functional requirements.
+Functional - Functional requirements are requirements which pertain to the function of the system.
+Non-Functional - Non-Functional requirements are requirements which cover areas that don't directly effect the function of the program.
+Functional requirements are pretty straightforward and easy to create. All we have to ask is "what should the program do?". Any answers to this question are functional requirements.
+For example: the system should collect user information, the system should provide a cart system for collecting items, the system should provide a way to rate and review different products. These are all functional requirements. They detail the way the program should function.
+Non-functional however are a little bit trickier. They are typically constraints. These constraints might be implemented by the government (safety regulations), the company (quality regulations), or the client. They are things we have to follow, but don't directly pertain to the function of the program.
+An example of a non-functional requirement would be that the program must be coded in Java. This requirement might come from the client, so it's easy to maintain by their engineers who only know Java. This doesn't describe the functional of the program at all. It will still do exactly the same thing in any programming language. This makes it a non-functional requirement.
+There are different categories of non-functional requirements to make it a little bit easier. These categories are product, organizational, and external.
+Product - Must have behaviors of the product (referring to the code, servers, etc). Example: Product must be coded in Java. Product must use Microsoft based servers.
+Organizational - Company policies, standards, styles, rules, etc. Example: The project will be developed using scrum. Every function must be documented.
+External - External laws, regulations, trends, etc. Product must use SSL due to European law XYZ. Product should use new technique of XYZ to collect data.
+
+------------------------------------
+DESIGN:
+Software Architecture Notes
+Architecture Introduction
+Architecture is the highest level of design within a system. It is the link between idea and reality. It takes our idea for the system, and creates a plan for it. We focus on only the largest areas of the system here.  We want to break it down from idea, into concrete areas to build.
+In software, bad architecture is something that CAN'T be fixed with good programming. It is a critical step within the development process. Once we decide on an architecture, we have to understand that it can't be changed.
+This is the same in the real world. Imagine trying to change the foundation of the skyscraper once it's built. Same could be said about a bridge. Imagine trying to switch it from a suspension to a draw bridge after it's built. These changes would be impossible. The only way to implement them would be to destroy the product and start over.
+Architecture Overview
+Software architecture is all about breaking up larger systems and ideas, into smaller focused systems. Our first step is to take the requirements, and build an initial architecture. We take this broad set of ideas and guidelines, and have to organize it into functioning areas.
+Each of these areas are then put through the same process to break them up into smaller and smaller pieces. Eventually we will have a blueprint for the entire system designed.
+Good architecture is hard. It takes a lot of resources to develop correctly. However, this upfront cost is almost always recovered from how maintainable the software is. This will reduce the amount of bugs, and the time to fix those bugs.
+Good architecture also helps for faster development and better resource utilization. If we break up the project into small pieces, we will understand how to have multiple developers work at the same time on it.
+Another benefit of breaking the project up is the idea of buy vs build. If we have for example 4 development teams. Through architecture design we have broke the project up into 5 different large projects. We go through each of these projects and learn that 1 of them has already been solved before and is for sale on the market. We can then allocate the 4 teams to the other ones, and just purchase the already created software, saving us time and money.
+Architecture Patterns
+Pipe-and-Filter
+The pipe and filter pattern is a good pattern to use to process data through multiple different layers. The key to this pattern is the ability of each step to input, and output the same type of data. So if you send a set of numbers in one side, you will get a set of numbers out the other side.
+This key constraint makes it so you can mix and match the logic in any order and still have the program work. These different filters can also be set up across multiple servers.
+There is definitely an added complexity with this pattern. Setting it up can be tricky to get correct. Also, if the data is lost at any step, the entire process is broken.
+More Information: https://docs.microsoft.com/en-us/azure/architecture/patterns/pipes-and-filters
+Client-Server
+The client-server pattern is one that is quite common today. Every single website and most phone apps use this architecture. With this pattern there are two parts to the software, the client, and the server.
+Let's take an iPhone app for example. What you download in the app store is what is known as the "client software". This is the version of the app built to talk to the server. It doesn't store any of the server's data locally. It is just setup to make the appropriate server calls when necessary.
+The other part of this is of course the "server software". This is the software that is installed onto a server to receive the requests from the client. The server holds and updates the data. It also processes requests, and sends the data to the clients. Servers have to be tuned correctly, as there can be a near unlimited number of clients requesting information.
+This is a great pattern for accessing and updating a single repository of information. It's great of keeping track of accounts, and regulating which data is given automatically.
+More Information: https://en.wikipedia.org/wiki/Client%E2%80%93server_model
+Master-Slave
+The master slave pattern consists of two elements, the master, and the slave. The master is in full control of all slaves associated with it. This is good for a multitude of different applications.
+One such application is with duplicate backup servers. You don't want these backup servers all acting independently of one another. This will create a bunch of different states of memory. Each server will have a different set of data. Instead, you have a master server, which is the main server of operation.
+The master server is the one dealing with all of the normal day to day operations. Then at some point during the day, it sends a signal out to all of the slave servers to tell them to begin their backup operation. The slave servers all start up, copy the data from the master server, and then go back to sleep.
+This pattern is also used with "multi-threading". Here we break up an operation into a bunch of small parts. Each of those parts are given a thread and fed through the CPU. If a CPU has multiple cores, it can process multiple threads at the same time.
+We typically have a master thread which controls the creation and tracking of all slave threads. The slaves do exactly what the master thread has told them. The master thread keeps reassessing the situation both creating and deleting slave threads. Once the operation is finished, the master thread ceases as well.
+More Information: http://www.openloop.com/softwareEngineering/patterns/designPattern/dPattern_MasterSlave.htm
+Layered Pattern
+The layered pattern consists of divvying up program into layers of technology. These layers only communicate with adjacent layers. Let's say we have an architecture with 9 layers. In this model, 8 would only be able to communicate with 9 and 7, 4 with 3 and 5, etc.
+This simplifies the communication channels, and helps to better distinguish the areas of the program. Overall, this helps to make the program more maintainable. The downside to this, is that there can be of added complexity in some areas. For example, if you need to send a message from layer 1 to layer 9. There will have to be a function in each layer to pass that message along.
+More Information: https://www.oreilly.com/library/view/software-architecture-patterns/9781491971437/ch01.html
+Architecture Conclusion
+There is no one size fits all plan when it comes to software development. The process must be taken on a case to case basis. Us, as engineers, seek to find the best pattern or set of patterns which solve the problem.
+This process is an iterative one. We come up with an idea, get feedback, rework it, and repeat the process many times. After a series of iterations, we have the architecture that will work best for the problem.
+
+--------------------------------
+Implementation Notes
+Implementation Introduction
+Implementation is the step where we actually begin coding our project. We have detailed what objectives the system should meet, have come up with a good design, and are now ready to begin coding.
+This process is going to be very specialized on what the system calls for. A website, iPhone app, server OS, desktop app, and eCommerce store will all be entirely different projects. Because of this, in this section I want to focus more on the theory about implementation and deployment. If you want to learn more about the technology that will solve your problem specifically, I might suggest looking up a specific course here on Udemy. There are many great options out there for just about anything.
+Implementation Overview
+Programmer Care
+The number one thing to understand when building software is to take care of your engineers/programmers. When a programmer starts to get tired, their code quality decreases. This decrease in quality can attribute to poor architecture, design, and overall code. This introduces the idea of "technical debt".
+Technical debt is a corner cut now, that will cost up to 10x the effort later on. So a 1 hour corner cut now, could cost 10 hours of work down the road. We want to prevent this as much as possible. Imagine if we gained 10 hours of technical debt every week over the course of a 26 week build. That would total to 260 hours of bad work. This means we could be looking at 2600 hours, or 325 WORKDAYS of effort to fix those problems.
+We have to remember that 35 hours a week of programming can be just as productive as 70 hours when we factor in technical debt.
+Coding Principals
+•	Use a style guide, so all the code looks generally the same.
+•	Code is written for people, not computers.
+•	Make modules easy to learn and understand.
+•	Go into everything with a plan. (You can experiment, but clean up after)
+•	Shorter code does not equal better code! MAKE IT READABLE.
+•	Break up actions into methods.
+More Information: https://www.makeuseof.com/tag/basic-programming-principles/
+Buy Vs. Build
+Good design allows us to see our entire project before it is built. With this, we can decide which areas we want to build, and which areas we want to purchase. The great thing about purchasing code is that it is almost always cheaper.
+Imagine a company which develops a subsystem to sell. They spend 3000 man hours building it. At a rate of $40 an hour, they would have spent $12,000 developing the software. If we wanted to build the same thing, we could expect the same outcome in cost.
+However, this company wouldn't sell it at $12,000. They have the benefit of being able to sell it over and over and over again. Because of this, they might sell it at say $500. They only need 24 sales to break even, and we save $11,500 through purchasing it.
+It's almost always a win-win situation to purchase instead of build. Coding however is usually very specific. This makes it rare to find software that perfectly fits the problem. However, do some research before you begin building, you can save a lot of money.
+More Information: https://clevertap.com/blog/build-vs-buy/
+
+----------------------------------------------
+Deployment Notes
+Deployment Overview
+Deployment is the time when we take our program, and deploy it to it's final location. So if it's a website, this is the point we make it public to all. Deployment is an interesting part of the software development process. It comes after testing, but must be planned out, typically before implementation. To get it correct, we must also typically program it a certain way, meaning it also fits into the implementation section.
+The level of planning here directly relates to how large the scope of the deployment is. If we are deploying the system for the first time, a lot of planning needs to take place. If we are applying a really small bug patch, then we don't need as much planning.
+Deployment should always be designed with the idea of retreat. If something goes wrong, how can we revert. During the initial deployment, this plan might be to take the product back offline. If however we are running a website like Amazon, we will have to do a bit more planning. If we accidentally break the website, we need the fastest plan possible to return the site to it's previous version.
+Deployment Rollback
+This process of retreat is officially known as "rollback".  We look for the point of no return. This is the single point where it takes longer to go back, than it does to just continue with the deployment.
+Knowing this point of no return helps us make the decision to rollback, or continue forward. When planning our rollback, we should have key points during the process. At each of these points, we will need to make the decision of whether we rollback, or continue forward.
+If a fatal error comes up at any point, even right before completion, we need a plan to get back to the previous version. Maybe this plan entails switching to a backup server, or undoing changes, or having a hybrid version of the two updates running together. Whatever it is, we need to have it planned out beforehand.
